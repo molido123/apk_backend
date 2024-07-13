@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smart.refresh.layout.SmartRefreshLayout android:id="@id/swipe_refresh_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:srlFooterTranslationViewId="@id/viewPager"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.scwang.smart.refresh.header.ClassicsHeader android:layout_width="fill_parent" android:layout_height="wrap_content" app:srlAccentColor="@android:color/white" app:srlClassicsSpinnerStyle="Scale" app:srlPrimaryColor="@color/xj_toolbar" />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/root_container" android:background="@color/xj_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.google.android.material.appbar.AppBarLayout android:theme="@style/AppTheme.AppBarOverlay" android:id="@id/app_bar" android:background="@color/xj_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@id/toolbar_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_scrollFlags="exitUntilCollapsed|scroll" app:toolbarId="@id/toolbar">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="8.0dip">
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/first_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/second_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/third_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/fourth_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/fifth_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                    <HorizontalScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginVertical="4.0dip">
+                        <RadioGroup android:orientation="horizontal" android:id="@id/sixth_categoty" android:layout_width="wrap_content" android:layout_height="30.0dip" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_content" android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="6.0dip" android:overScrollMode="never" app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>

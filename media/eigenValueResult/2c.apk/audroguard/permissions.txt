@@ -1,0 +1,8 @@
+Permissions:
+android.permission.REQUEST_INSTALL_PACKAGES
+android.permission.REQUEST_DELETE_PACKAGES
+com.google.android.gms.permission.AD_ID
+android.permission.ACCESS_NETWORK_STATE
+android.permission.INTERNET
+android.permission.WRITE_EXTERNAL_STORAGE
+android.permission.READ_EXTERNAL_STORAGE

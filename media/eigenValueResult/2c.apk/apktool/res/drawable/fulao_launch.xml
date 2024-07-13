@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <size android:height="320.0dip" android:width="180.0dip" />
+            <solid android:color="#fff3d3d6" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="356.0dip" android:width="270.0dip" android:drawable="@drawable/icon_fulao_launch" />
+</layer-list>

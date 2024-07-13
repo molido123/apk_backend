@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/hot_ad_img" android:layout_width="0.0dip" android:layout_height="0.0dip" android:src="@color/gray" android:scaleType="fitXY" app:layout_constraintBottom_toTopOf="@id/hot_ad_close_btn" app:layout_constraintDimensionRatio="h,14:9" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/hot_ad_close_btn" android:layout_width="56.0dip" android:layout_height="56.0dip" android:layout_marginTop="24.0dip" android:src="@drawable/ic_hot_ad_close" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="@id/hot_ad_img" app:layout_constraintRight_toRightOf="@id/hot_ad_img" app:layout_constraintTop_toBottomOf="@id/hot_ad_img" />
+</androidx.constraintlayout.widget.ConstraintLayout>

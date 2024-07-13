@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smart.refresh.layout.SmartRefreshLayout android:id="@id/smart_refresh_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.scwang.smart.refresh.header.ClassicsHeader android:id="@id/refresh_header" android:layout_width="fill_parent" android:layout_height="wrap_content" app:srlEnableLastTime="false" app:srlTextPulling="下拉返回上一个平台" app:srlTextRefreshing="下拉返回上一个平台" app:srlTextRelease="下拉返回上一个平台" />
+    <ezy.ui.layout.LoadingLayout android:id="@id/loading_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_ui" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </ezy.ui.layout.LoadingLayout>
+    <com.scwang.smart.refresh.footer.ClassicsFooter android:id="@id/refresh_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" app:srlTextNothing="无更多数据上拉搜索下个平台" />
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>

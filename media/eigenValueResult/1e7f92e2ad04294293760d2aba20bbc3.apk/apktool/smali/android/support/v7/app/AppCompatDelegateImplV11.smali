@@ -1,0 +1,53 @@
+.class Landroid/support/v7/app/AppCompatDelegateImplV11;
+.super Landroid/support/v7/app/AppCompatDelegateImplV7;
+.source "AppCompatDelegateImplV11.java"
+
+
+# direct methods
+.method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+    .locals 0
+
+    .line 28
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/app/AppCompatDelegateImplV7;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method callActivityOnCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+    .locals 1
+
+    .line 34
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v7/app/AppCompatDelegateImplV7;->callActivityOnCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    .line 40
+    :cond_0
+    iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV11;->mOriginalWindowCallback:Landroid/view/Window$Callback;
+
+    instance-of v0, v0, Landroid/view/LayoutInflater$Factory2;
+
+    if-eqz v0, :cond_1
+
+    .line 41
+    iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV11;->mOriginalWindowCallback:Landroid/view/Window$Callback;
+
+    check-cast v0, Landroid/view/LayoutInflater$Factory2;
+
+    invoke-interface {v0, p1, p2, p3, p4}, Landroid/view/LayoutInflater$Factory2;->onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    return-object p1
+.end method

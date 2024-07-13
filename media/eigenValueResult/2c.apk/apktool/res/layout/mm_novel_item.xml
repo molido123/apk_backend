@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.makeramen.roundedimageview.RoundedImageView android:id="@id/novel_img" android:layout_width="fill_parent" android:layout_height="0.0dip" android:scaleType="fitXY" app:layout_constraintDimensionRatio="h,9:13" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" app:riv_corner_radius="8.0dip" />
+    <TextView android:textSize="12.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/novel_title" android:background="@drawable/mm_novel_title_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:paddingVertical="4.0dip" app:layout_constraintBottom_toBottomOf="@id/novel_img" app:layout_constraintLeft_toLeftOf="@id/novel_img" app:layout_constraintRight_toRightOf="@id/novel_img" />
+</androidx.constraintlayout.widget.ConstraintLayout>

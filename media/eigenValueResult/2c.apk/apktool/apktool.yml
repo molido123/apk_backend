@@ -1,0 +1,32 @@
+version: 2.9.3
+apkFileName: 2c.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+  minSdkVersion: 26
+  targetSdkVersion: 28
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: null
+versionInfo:
+  versionCode: 1
+  versionName: 3.5.0
+resourcesAreCompressed: false
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  androidsupportmultidexversion.txt: 8
+  DebugProbesKt.bin: 8
+  play-services-ads-identifier.properties: 8
+  kotlin-tooling-metadata.json: 8
+  play-services-basement.properties: 8
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: 8
+  okhttp3/internal/publicsuffix/NOTICE: 8
+doNotCompress:
+- resources.arsc
+- png
+- webp
+- res/drawable-xxxhdpi/sgp_placeholder.webp

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/controller" android:background="@drawable/mz_bg_controller" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/mz_controller_top" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/controller_unlock" android:background="@drawable/mz_selector_option_bg" android:padding="@dimen/option_padding" android:visibility="gone" android:layout_width="@dimen/option_size_big" android:layout_height="@dimen/option_size_big" android:layout_marginLeft="@dimen/ctl_layout_padding" android:src="@drawable/mz_selector_unlock" android:contentDescription="@null" android:layout_marginStart="@dimen/ctl_layout_padding" />
+    <ImageView android:layout_gravity="end|center" android:id="@id/controller_lock" android:background="@drawable/mz_selector_option_bg" android:padding="@dimen/option_padding" android:visibility="gone" android:layout_width="@dimen/option_size_big" android:layout_height="@dimen/option_size_big" android:layout_marginRight="@dimen/ctl_layout_padding" android:src="@drawable/mz_selector_lock" android:contentDescription="@null" android:layout_marginEnd="@dimen/ctl_layout_padding" />
+    <include layout="@layout/mz_controller_bottom" />
+</FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/video_img" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:minHeight="130.0dip" android:layout_marginHorizontal="10.0dip" />
+    <ImageView android:layout_gravity="center" android:layout_width="58.0dip" android:layout_height="58.0dip" android:src="@drawable/xj_icon_bf" />
+</FrameLayout>

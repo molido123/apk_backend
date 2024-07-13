@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/lunbo_image_id" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <TextView android:textSize="16.0dip" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/lunbo_title_id" android:background="@drawable/lunbo_title" android:paddingLeft="8.0dip" android:paddingTop="5.0dip" android:paddingRight="8.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:layout_alignParentBottom="true" />
+</RelativeLayout>

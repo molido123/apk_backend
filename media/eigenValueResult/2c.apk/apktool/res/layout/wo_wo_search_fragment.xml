@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/search_container" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/lt_search_input_layout" />
+    <View android:id="@id/dummy_view" android:background="@color/wowo_toolbar" android:layout_width="fill_parent" android:layout_height="8.0dip" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/search_container" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/lt_rv_search_tui_jian" android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="0.0dip" android:overScrollMode="never" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/dummy_view" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/lt_rv_search_result" android:background="@color/comm_background_color" android:focusable="true" android:focusableInTouchMode="true" android:visibility="invisible" android:scrollbars="none" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="0.0dip" android:overScrollMode="never" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/dummy_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

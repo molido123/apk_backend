@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="cache-path" path="." />
+    <external-cache-path name="external-cache-path" path="." />
+    <external-cache-path name="external-cache--custom-path" path="update" />
+    <external-cache-path name="external-cache--custom-path" path="update" />
+</paths>

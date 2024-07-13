@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/shape_chapter_msg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_centerInParent="true">
+        <TextView android:textSize="@dimen/s_dp_15" android:textColor="@color/color_withe" android:ellipsize="end" android:id="@id/chapter_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" />
+        <TextView android:textSize="@dimen/s_dp_12" android:textColor="#99cdcbcb" android:ellipsize="end" android:gravity="right" android:id="@id/chapter_progress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/s_dp_5" android:text="@string/zero_percent" android:maxLines="1" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

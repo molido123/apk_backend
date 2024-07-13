@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatEditText android:id="@id/invite_code" android:layout_marginTop="100.0dip" android:hint="请输入邀请码" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/AccountEditTextStyle" />
+    <Button android:id="@id/submit_btn" android:layout_marginTop="36.0dip" android:text="绑定" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/invite_code" style="@style/AccountSubmitButtonStyle" />
+</androidx.constraintlayout.widget.ConstraintLayout>
