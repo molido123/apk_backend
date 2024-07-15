@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/momo_category_header_left" android:background="@drawable/momo_icon_gold_dsp" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_marginRight="4.0dip" app:layout_constraintDimensionRatio="h,498:240" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toLeftOf="@id/momo_category_header_right" app:layout_constraintTop_toTopOf="parent" />
-    <ImageView android:id="@id/momo_category_header_right" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/momo_icon_new_dsp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toRightOf="@id/momo_category_header_left" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>

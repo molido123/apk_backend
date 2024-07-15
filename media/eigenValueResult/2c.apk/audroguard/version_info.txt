@@ -1,2 +1,0 @@
-Version Name: 3.5.0
-Version Code: 1

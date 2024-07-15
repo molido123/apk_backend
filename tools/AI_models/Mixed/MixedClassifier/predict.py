@@ -10,6 +10,11 @@ from utils import preprocess_test_data, create_test_dataloader, SklearnWrapper, 
 from models.model import CNN1D, TransformerModel, MLP
 from catboost import CatBoostClassifier
 
+np.random.seed(42)
+torch.manual_seed(42)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed(42)
+
 MODEL_CLASSES = {
     'cnn': CNN1D,
     'transformer': TransformerModel,

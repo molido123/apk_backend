@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/v5_common_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.github.ybq.android.spinkit.SpinKitView android:layout_gravity="center_horizontal" android:id="@id/loading_view" android:layout_width="80.0dip" android:layout_height="80.0dip" app:SpinKit_Color="#ff999999" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/SpinKitView.DoubleBounce" />
-    <TextView android:textSize="16.0sp" android:textColor="@color/v5_global_search_label_title_section_color" android:gravity="center_horizontal" android:id="@id/loading_tips" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:text="@string/global_search_start_init" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/loading_view" />
-</androidx.constraintlayout.widget.ConstraintLayout>

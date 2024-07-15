@@ -119,7 +119,7 @@ def count_sensitive_apis(api_calls_path):
     return sensitive_count
 
 
-def traverse_and_count(apk_name):
+def traverse_and_count(apk_name,root_dir):
     """遍历根目录并统计特定文件的行数，同时解析AndroidManifest.xml文件并获取包名信息。"""
     data = []  # 初始化 data 变量
     apk_dir = os.path.join(root_dir, apk_name)
@@ -185,8 +185,8 @@ def save_to_csv(data, csv_path):
         pass
 
 
-def get_predict_data(apkName):
-    root_dir = os.path.expanduser('../../media/eigenValueResult')
-    data = traverse_and_count(apkName)
-    csv_path = os.path.expanduser(f'../../media/predictData/{apkName}.csv')
+def generate_predict_data(apkName):
+    root_dir = os.path.expanduser('media/eigenValueResult')
+    data = traverse_and_count(apkName,root_dir)
+    csv_path = os.path.expanduser(f'media/predictData/{apkName}.csv')
     save_to_csv(data, csv_path)

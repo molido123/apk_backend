@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:background="#80000000" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:background="#00000000" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="选集：" />
-        <com.dueeeke.videocontroller.SelectionsListView android:id="@id/list" android:background="#00000000" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" />
-    </LinearLayout>
-</RelativeLayout>

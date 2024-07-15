@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/mz_selector_option_bg" android:paddingLeft="@dimen/seek_padding_w" android:paddingTop="@dimen/seek_padding_h" android:paddingRight="@dimen/seek_padding_w" android:paddingBottom="@dimen/seek_padding_h" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/seek_img" android:layout_width="@dimen/seek_img_width" android:layout_height="wrap_content" android:src="@drawable/mz_bg_play_go" android:contentDescription="@null" />
-    <TextView android:textSize="@dimen/seek_font_size" android:textColor="@color/ctl_font" android:id="@id/seek_flag" android:padding="@dimen/seek_flag_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ctl_flag" />
-</LinearLayout>

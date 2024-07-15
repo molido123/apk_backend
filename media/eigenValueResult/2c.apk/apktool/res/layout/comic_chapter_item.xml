@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView android:textSize="14.0dip" android:textColor="@color/fg_second_text_color" android:gravity="center" android:id="@id/comic_chapter_title" android:background="@drawable/fg_style_content_bg" android:layout_width="fill_parent" android:layout_height="35.0dip" android:singleLine="true"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

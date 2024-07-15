@@ -2,9 +2,10 @@ import os
 import subprocess
 from tqdm import tqdm
 
-apk_folder = os.path.expanduser('../../media/uploaded_files')
-output_folder = os.path.expanduser('../../media/eigenValueResult')  # 替换为公共输出文件夹的路径
-audroguard_script = os.path.expanduser('Cello.py')  # 替换为Cello.py脚本(处理apk)的路径
+
+apk_folder = os.path.expanduser('media/uploaded_files')
+output_folder = os.path.expanduser('media/eigenValueResult')  # 替换为公共输出文件夹的路径
+audroguard_script = os.path.expanduser('tools/get_eigen_value/Cello.py')  # 替换为Cello.py脚本(处理apk)的路径
 
 # 设置正确的 JAVA_HOME 路径
 java_home = subprocess.check_output(['/usr/libexec/java_home']).strip().decode()
@@ -41,4 +42,3 @@ def get_eigenvalue(apkName):
         storage_file.write(f"{apk_size:.2f}M\n")
 
 
-get_eigenvalue("2c.apk")

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.bifan.txtreaderlib.main.TxtReaderView android:id="@id/novel_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-    <TextView android:textColor="@color/color_666666" android:layout_gravity="bottom" android:id="@id/novel_read_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s_dp_10" android:text="@string/zero_percent" android:layout_marginStart="@dimen/s_dp_10" />
-</FrameLayout>

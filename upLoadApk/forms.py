@@ -1,5 +1,5 @@
 from django import forms
-from .models import ApkFileList
+from upLoadApk.models.ApkFileList import ApkFileList
 
 
 class UploadedFileForm(forms.ModelForm):

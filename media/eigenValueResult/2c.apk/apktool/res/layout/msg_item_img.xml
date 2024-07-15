@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:id="@id/msg_time" style="@style/MsgTimeContentStyle" />
-    <ImageView android:id="@id/msg_img" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="100.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="12.0dip" android:scaleType="fitXY" android:minHeight="60.0dip" app:layout_constraintTop_toBottomOf="@id/msg_time" />
-</androidx.constraintlayout.widget.ConstraintLayout>
