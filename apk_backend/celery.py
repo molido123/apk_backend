@@ -25,7 +25,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'check-every-minute': {
         'task': 'ShowResults.tasks.process_unprocessed_files',
-        'schedule': timedelta(seconds=2),  # 每隔1分钟执行一次
+        'schedule': timedelta(seconds=10),  # 每隔1分钟执行一次
     },
 }
 app.now = timezone.now

@@ -9,6 +9,7 @@ import joblib
 import os
 from sklearn.base import BaseEstimator, ClassifierMixin
 
+
 def preprocess_data(data, fit_scaler=False, fit_label_encoder=False):
     X = data.drop(columns=['apk_name', 'label']).values.astype(np.float32)
     y = data['label'].values
@@ -16,17 +17,17 @@ def preprocess_data(data, fit_scaler=False, fit_label_encoder=False):
     if fit_label_encoder:
         label_encoder = LabelEncoder()
         y = label_encoder.fit_transform(y)
-        joblib.dump(label_encoder, 'pickles/label_encoder.pkl')
+        joblib.dump(label_encoder, 'tools/AI_models/Mixed/MixedClassifier/pickles/label_encoder.pkl')
     else:
-        label_encoder = joblib.load('pickles/label_encoder.pkl')
+        label_encoder = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/label_encoder.pkl')
         y = label_encoder.transform(y)
 
     if fit_scaler:
         scaler = StandardScaler()
         X = scaler.fit_transform(X)
-        joblib.dump(scaler, 'pickles/scaler.pkl')
+        joblib.dump(scaler, 'tools/AI_models/Mixed/MixedClassifier/pickles/scaler.pkl')
     else:
-        scaler = joblib.load('pickles/scaler.pkl')
+        scaler = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/scaler.pkl')
         X = scaler.transform(X)
 
     smote = SMOTE(random_state=42)
@@ -36,17 +37,19 @@ def preprocess_data(data, fit_scaler=False, fit_label_encoder=False):
 
     return X_train, X_test, y_train, y_test, label_encoder, scaler
 
+
 def preprocess_test_data(data):
     X = data.drop(columns=['apk_name', 'label']).values.astype(np.float32)
     y = data['label'].values
 
-    label_encoder = joblib.load('pickles/label_encoder.pkl')
+    label_encoder = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/label_encoder.pkl')
     y = label_encoder.transform(y)
 
-    scaler = joblib.load('pickles/scaler.pkl')
+    scaler = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/scaler.pkl')
     X = scaler.transform(X)
 
     return X, y
+
 
 def create_dataloaders(X_train, X_test, y_train, y_test, batch_size):
     X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
@@ -62,11 +65,13 @@ def create_dataloaders(X_train, X_test, y_train, y_test, batch_size):
 
     return train_loader, test_loader
 
+
 def create_test_dataloader(X_test, batch_size):
     X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
     test_dataset = TensorDataset(X_test_tensor)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     return test_loader
+
 
 def predict_proba(model, X_test, model_type='sklearn', device=None):
     if model_type == 'sklearn':
@@ -89,6 +94,7 @@ def predict_proba(model, X_test, model_type='sklearn', device=None):
         return model.predict_proba(X_test)
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
+
 
 class SklearnWrapper(BaseEstimator, ClassifierMixin):
     def __init__(self, model_class, input_dim, num_classes, model_type, device='cpu'):

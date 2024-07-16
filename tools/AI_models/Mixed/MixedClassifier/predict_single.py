@@ -5,9 +5,12 @@ import joblib
 import torch
 import pandas as pd
 import numpy as np
-from utils import preprocess_test_data, SklearnWrapper, predict_proba
-from models.model import CNN1D, TransformerModel, MLP
+from .utils import preprocess_test_data, SklearnWrapper, predict_proba
+from .models.model import CNN1D, TransformerModel, MLP
 from catboost import CatBoostClassifier
+from ShowResults.models import EigenValue
+from ShowResults.models import PredictionResult
+
 np.random.seed(42)
 torch.manual_seed(42)
 if torch.cuda.is_available():
@@ -19,12 +22,12 @@ MODEL_CLASSES = {
 }
 
 MODEL_PATHS = {
-    'cnn': 'trained_models/cnn_model.pth',
-    'transformer': 'trained_models/transformer_model.pth',
-    'mlp': 'trained_models/mlp_model.pth',
-    'tabnet': 'trained_models/tabnet_model.pkl',
-    'rf': 'trained_models/rf_model.pkl',
-    'catboost': 'trained_models/catboost_model.cbm'
+    'cnn': 'tools/AI_models/Mixed/MixedClassifier/trained_models/cnn_model.pth',
+    'transformer': 'tools/AI_models/Mixed/MixedClassifier/trained_models/transformer_model.pth',
+    'mlp': 'tools/AI_models/Mixed/MixedClassifier/trained_models/mlp_model.pth',
+    'tabnet': 'tools/AI_models/Mixed/MixedClassifier/trained_models/tabnet_model.pkl',
+    'rf': 'tools/AI_models/Mixed/MixedClassifier/trained_models/rf_model.pkl',
+    'catboost': 'tools/AI_models/Mixed/MixedClassifier/trained_models/catboost_model.cbm'
 }
 
 
@@ -70,7 +73,7 @@ def load_data(file_path):
 
 
 # 加载Label Encoder
-label_encoder = joblib.load('pickles/label_encoder.pkl')
+label_encoder = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/label_encoder.pkl')
 
 # 加载设备
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -98,7 +101,7 @@ def predict_single_sample(sample):
     print(f"Stacked sample features shape: {stacked_sample_features.shape}")
 
     # 加载元学习器
-    meta_model = joblib.load('pickles/meta_model.pkl')
+    meta_model = joblib.load('tools/AI_models/Mixed/MixedClassifier/pickles/meta_model.pkl')
 
     # 使用元学习器进行最终预测
     final_sample_prediction_proba = meta_model.predict_proba([stacked_sample_features])[0]
@@ -113,10 +116,8 @@ def predict_single_sample(sample):
     return predicted_label, predicted_probabilities
 
 
-def main(args):
+def get_result(data):
     # 加载数据
-    data = pd.read_csv(args.data_path)
-
     # 测试单个样本预测
     sample = data.iloc[0].to_dict()  # 示例，使用数据集中的第一个样本
     predicted_label, predicted_probabilities = predict_single_sample(sample)
@@ -125,16 +126,10 @@ def main(args):
         'predicted_probabilities': predicted_probabilities
     }
 
-    with open('logs/single_prediction.json', 'w') as f:
+    with open('tools/AI_models/Mixed/MixedClassifier/logs/single_prediction.json', 'w') as f:
         json.dump(log_data, f, indent=4)
 
     print("单个样本的预测结果:", predicted_label)
     print("单个样本的预测概率:", json.dumps(predicted_probabilities, indent=4))
+    return log_data
 
-
-if __name__ == '__main__':
-    predict_raw_path = os.path.expanduser("../../../../media/predictData/result_data.csv")
-    parser = argparse.ArgumentParser(description='Predict a single sample using stacked models')
-    parser.add_argument('--data_path', default=predict_raw_path, type=str, help='Path to the test data')
-    args = parser.parse_args()
-    main(args)

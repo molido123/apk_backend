@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'upLoadApk',
     'corsheaders',
     'ShowResults',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

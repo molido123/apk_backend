@@ -12,6 +12,7 @@ class EigenValue(models.Model):
     base_name_length = models.IntegerField()
     top_level_domain_match = models.BooleanField()
     sensitive_api_count = models.IntegerField()
+    md5_value = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.apk_name
