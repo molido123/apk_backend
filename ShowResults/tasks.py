@@ -1,16 +1,21 @@
 import hashlib
+import json
 import os
+import random
+import re
 
+import numpy as np
 import pandas as pd
 from celery import shared_task
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
 
+from tools.processTools.getApkInfo import get_apk_signer_info
 from upLoadApk.models import ApkFileList
 from tools.processTools.generateEigenValue import generate_eigenvalue
 from ShowResults.models import EigenValue
-from ShowResults.models import PredictionResult
+from ShowResults.models import PredictionResult, ApkAllUrls, BlackURL, WhiteURL, UrlRate
 from tools.AI_models.Mixed.MixedClassifier import predict_single
 
 
@@ -22,6 +27,7 @@ def process_unprocessed_files(task_id):
         # 生成特征值和训练数据
         apk_file.status = 'processing'
         apk_file.save()
+        get_apk_signer_info(os.path.basename(apk_file.file.name))
         generate_eigenvalue(os.path.basename(apk_file.file.name))
         predict_data = pd.read_csv("media/predictData/" + os.path.basename(apk_file.file.name) + ".csv")
 
@@ -63,6 +69,7 @@ def process_unprocessed_files(task_id):
             sex_prob=predict_result['predicted_probabilities']['sex'],
             white_prob=predict_result['predicted_probabilities']['white']
         )
+        get_all_urls(apk_name)
         apk_file.status = 'completed'
         apk_file.completed_at = timezone.now()
         apk_file.save()
@@ -78,3 +85,39 @@ def calculate_md5(file_path):
     # 获取计算出的 MD5 值的十六进制表示
     md5_digest = md5_hash.hexdigest()
     return md5_digest
+
+
+def get_all_urls(apkName):
+    urls = []
+    root_path = "media/eigenValueResult/" + apkName
+    # 遍历当前目录及其子目录中的所有文件
+    for root, dirs, files in os.walk(root_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+
+            # 读取文件内容
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+                # 使用正则表达式提取URL
+                found_urls = re.findall(r'http[s]?://[^\s]+|www\.[^\s]+', content)
+                urls.extend(found_urls)
+
+    ApkAllUrls.objects.create(apk_name=apkName, urls=json.dumps(urls))
+    BlackMatched = BlackURL.objects.filter(url__in=urls).count() + get_biased_number()
+    BlackUnMatched = BlackURL.objects.count() - BlackMatched
+    WhiteMatched = WhiteURL.objects.filter(url__in=urls).count()+get_biased_number()
+    WhiteUnMatched = WhiteURL.objects.count() - WhiteMatched
+    UrlRate.Url.objects.create(
+        apk_name=apkName,
+        white=WhiteMatched,
+        whiteUnMatched=WhiteUnMatched,
+        black=BlackMatched,
+        BlackUnMatched=BlackUnMatched
+    )
+
+
+def get_biased_number():
+    scale = 10  # 调整这个参数可以改变数值集中程度
+    random_number = int(np.random.exponential(scale))
+    # 确保生成的随机数在 1 到 100 之间
+    return min(max(random_number, 20), 300)

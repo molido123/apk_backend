@@ -129,7 +129,5 @@ def get_result(data):
     with open('tools/AI_models/Mixed/MixedClassifier/logs/single_prediction.json', 'w') as f:
         json.dump(log_data, f, indent=4)
 
-    print("单个样本的预测结果:", predicted_label)
-    print("单个样本的预测概率:", json.dumps(predicted_probabilities, indent=4))
     return log_data
 
