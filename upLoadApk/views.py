@@ -1,7 +1,8 @@
+import json
 import os
 
 import requests
-from django.core.files.base import ContentFile
+from django.core.files.base import ContentFile, File
 from django.core.files.storage import default_storage
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import JsonResponse
@@ -46,7 +47,6 @@ def upload_QR(request):
 
             # 解析二维码
             image = Image.open(temp_path)
-            print(image)
             decoded_objects = decode(image)
             os.remove(temp_path)  # 删除临时文件
 
@@ -74,3 +74,34 @@ def upload_QR(request):
             return JsonResponse({"error": str(e)}, status=400)
     else:
         return JsonResponse({"error": "No file uploaded."}, status=400)
+
+
+@csrf_exempt
+def upload_URL(request):
+    if request.method == 'POST':
+        try:
+            body = json.loads(request.body)
+            url = body.get('url')
+            if not url:
+                return JsonResponse({'error': 'URL is missing'}, status=400)
+
+            response = requests.get(url)
+            response.raise_for_status()  # 如果请求失败，会抛出HTTPError
+
+            # 生成文件名
+            file_name = url.split('/')[-1] or 'downloaded_file'
+
+            # 保存到模型中
+            uploaded_file = ApkFileList()
+            uploaded_file.file.save(file_name, ContentFile(response.content))
+            uploaded_file.save()
+
+            return JsonResponse({'message': '文件上传成功'}, status=200)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except requests.RequestException as e:
+            return JsonResponse({'error': f'Failed to download file: {str(e)}'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': f'An error occurred: {str(e)}'}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=405)
